@@ -1,0 +1,99 @@
+body{
+    /*max-width: 100%;*/
+    background-image: url(images/image1.png);
+    background-repeat: repeat;
+    padding-top: 70px;
+}
+
+.inner{        
+    background-color: white;
+    border-radius: 20px;
+    padding-top: 10px; 
+}
+
+/*.inner{
+    
+}*/
+
+.header{
+    height: 200px;
+    padding-top: 10px;
+    margin: auto;
+    background: #232B3D;
+    border-radius: 8px;   
+}
+
+.head{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.max-votes{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 65px;
+    text-align: center;
+    color: #FFFFFF;
+    opacity: 0.6;
+}
+
+.progress{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.thin{
+    border: rgb(214, 207, 207) 0.5px solid;
+    border-radius: 5px;
+}
+
+.mate-div{
+    margin: 0 auto;
+}
+
+.col-sm-6{
+    margin: 10px 0px 10px 0px;
+}
+.person{
+    margin: 0 auto;
+    display: flex;
+}
+
+.person p{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    color: #000000;
+}
+
+.info{
+    padding-left: 20px;
+    margin-top: 15px;
+}
+
+.mate{ 
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.count button{
+    background: none;
+    border: none;
+}
+
+.btn-lg{
+    background: #1E2A5A;
+    border-radius: 10px;
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 18px;
+    color: #FFFFFF;
+}
