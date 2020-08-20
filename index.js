@@ -7,15 +7,14 @@ const mateNames = $All(".name");
 const mateVotes = $All(".vote");
 const mateImages = $All(".mate");
 const progressBar = $(".progress");
-const LeaderboardImgs = $All(".leaderboard img");
-const LeaderboardNames = $All(".leaderboard .username");
-const eviction = $(".userEviction p");
-const counts = $All(".leaderboard span");
+const LeaderboardImgs = $All(".lb-mate");
+const LeaderboardNames = $All(".lb-name");
+const eviction = $(".evicted p");
+const counts = $All(".level span");
 
 const contestants = {
   totalMarks: 100,
-  mates: [
-    {
+  mates: [{
       name: "Dorathy",
       votes: 0,
       id: 0,
@@ -73,6 +72,8 @@ const displayMates = () => {
 };
 displayMates();
 
+
+
 // //Add vote to the user's score
 addBtn.forEach((btn, index) => {
   btn.addEventListener("click", () => {
@@ -109,30 +110,57 @@ subtractBtn.forEach((btn, index) => {
   });
 });
 
-// counts.forEach((count, index) => {
-//   count.innerHTML = index + 1;
-// });
+counts.forEach((count, index) => {
+  count.innerHTML = index + 1;
+});
 
-// //Animate
+//Animate
 // const viewBoard = $(".view");
 // const backToVote = $(".back");
 // const leaderboard = $(".leaderboard");
 
 // //Sorting out according to position and votes
 
-// let newUsers = [];
+// let newMates = [];
+// let newMates = contestants.mates.map((u) => Object.assign({}, u));
+// let newMateVotes = [];
+// newMates.map((mate, index) => {
+//       //4
+//       newMateVotes.push(mate.votes);
+//       newMateVotes.sort((a, b) => b - a);
+//       newMateVotes.includes(mate.votes) ?
+//         newMateVotes.splice(newMateVotes.indexOf(mate.votes), 0, mate) :
+//         "";
+//        console.log(newMateVotes); 
+
 // const redirectToBoard = () => {
-//   leaderboard.style.opacity = 1;
-//   leaderboard.style.pointerEvents = "auto";
-//   LeaderboardImgs.forEach((img) => {});
-//   let users2 = counters.users.map((u) => Object.assign({}, u));
-//   let newUserMarks = [];
-//   users2.map((user, index) => {
-//     newUserMarks.push(user.votes);
-//     newUserMarks.sort((a, b) => b - a);
-//     newUserMarks.includes(user.votes)
-//       ? newUsers.splice(newUserMarks.indexOf(user.votes), 0, user)
-//       : "";
+//     leaderboard.style.opacity = 1;
+//     leaderboard.style.pointerEvents = "auto";
+// LeaderboardImgs.forEach((image) => {});
+let newMates = contestants.mates.map((u) => Object.assign({}, u));
+let newMateVotes = [];
+newMates.map((mate, index) => {
+  //4
+  newMateVotes.push(mate.votes);
+  newMateVotes.sort((a, b) => b - a);
+  newMateVotes.includes(mate.votes) ?
+    newMateVotes.splice(newMateVotes.indexOf(mate.votes), 0, mate) :
+    "";
+  //       console.log(newMateVotes)
+});
+
+newMates.map((mate, index, mates) => {
+  LeaderboardNames.forEach((name, ElementIndex) => {
+    index == ElementIndex ? (name.textContent = mate.name) : "";
+  });
+  LeaderboardImgs.forEach((userImage, ElementIndex) => {
+    index == ElementIndex ? (userImage.src = mate.imageSrc) : "";
+  });
+  lastMate = mates[mates.length - 1].name;
+  eviction.innerHTML = `${lastMate} was evicted`;
+});
+// };
+
 //   });
 //   //  console.log(newUsers)
 //   newUsers.map((user, index, users) => {

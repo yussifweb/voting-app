@@ -1,29 +1,29 @@
-body{
+body {
     /*max-width: 100%;*/
     background-image: url(images/image1.png);
     background-repeat: repeat;
     padding-top: 70px;
 }
 
-.inner{        
+.inner {
     background-color: white;
     border-radius: 20px;
-    padding-top: 10px; 
+    padding-top: 10px;
 }
 
 /*.inner{
     
 }*/
 
-.header{
+.header {
     height: 200px;
     padding-top: 10px;
     margin: auto;
     background: #232B3D;
-    border-radius: 8px;   
+    border-radius: 8px;
 }
 
-.head{
+.head {
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
@@ -32,7 +32,7 @@ body{
     color: #FFFFFF;
 }
 
-.max-votes{
+.max-votes {
     font-family: Roboto;
     font-style: normal;
     font-weight: 900;
@@ -42,29 +42,30 @@ body{
     opacity: 0.6;
 }
 
-.progress{
+.progress {
     width: 90%;
     margin: 0 auto;
 }
 
-.thin{
+.thin {
     border: rgb(214, 207, 207) 0.5px solid;
     border-radius: 5px;
 }
 
-.mate-div{
+.mate-div {
     margin: 0 auto;
 }
 
-.col-sm-6{
+.col-sm-6 {
     margin: 10px 0px 10px 0px;
 }
-.person{
+
+.person {
     margin: 0 auto;
     display: flex;
 }
 
-.person p{
+.person p {
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
@@ -73,27 +74,41 @@ body{
     color: #000000;
 }
 
-.info{
+.info {
     padding-left: 20px;
     margin-top: 15px;
 }
 
-.mate{ 
+.mate {
     width: 100px;
     height: 100px;
     border-radius: 50%;
 }
 
-.count button{
+.lb-mate {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.count button {
     background: none;
     border: none;
 }
 
-.btn-lg{
+.btn-lg {
     background: #1E2A5A;
     border-radius: 10px;
     font-family: Roboto;
     font-style: normal;
     font-size: 18px;
     color: #FFFFFF;
+}
+
+.modal-footer {
+    align-self: center;
+}
+
+.modal-header {
+    align-self: center;
 }
