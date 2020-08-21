@@ -11,6 +11,7 @@ const LeaderboardImgs = $All(".lb-mate");
 const LeaderboardNames = $All(".lb-name");
 const eviction = $(".evicted p");
 const counts = $All(".level span");
+const lboard = $(".lboard");
 
 const contestants = {
   totalMarks: 100,
@@ -109,30 +110,49 @@ subtractBtn.forEach((btn, index) => {
     });
   });
 });
-
-
-let newMates = contestants.mates.map((u) => Object.assign({}, u));
 let newMateVotes = [];
-newMates.map((mate, index) => {
-  //4
-  newMateVotes.push(mate.votes);
-  // newMateVotes.sort((a, b) => b - a);
-  // newMateVotes.includes(mate.votes) ?
-  //   newMateVotes.splice(newMateVotes.indexOf(mate.votes), 0, mate) :
-  //   "";
-  //       console.log(newMateVotes)
-});
+let sorted = [];
+let finalContestants = [];
+lboard.addEventListener("click", () => {
+  let newMates = contestants.mates.map((u) => Object.assign({}, u));
+  newMates.map((mate, index) => {
+    //4
+    newMateVotes.push(mate.votes);
 
-newMates.map((mate, index, mates) => {
-  LeaderboardNames.forEach((name, ElementIndex) => {
-    index == ElementIndex ? (name.textContent = mate.name) : "";
+    sorted = newMateVotes.sort((a, b) => b - a);
+    if (sorted.includes(mate.votes)) {
+      finalContestants.splice(sorted.indexOf(mate.votes), 0, mate)
+    }
+    newMates.map((mate, index, mates) => {
+      LeaderboardNames.forEach((name, ElementIndex) => {
+        index == ElementIndex ? (name.textContent = mate.name) : "";
+      });
+      LeaderboardImgs.forEach((userImage, ElementIndex) => {
+        index == ElementIndex ? (userImage.src = mate.imageSrc) : "";
+      });
+      counts.forEach((votes, ElementIndex) => {
+        index == ElementIndex ? (votes.textContent = mate.votes) : "";
+      });
+
+
+
+    });
+
   });
-  LeaderboardImgs.forEach((userImage, ElementIndex) => {
-    index == ElementIndex ? (userImage.src = mate.imageSrc) : "";
-  });
-  counts.forEach((votes, ElementIndex) => {
-    index == ElementIndex ? (votes.textContent = mate.votes) : "";
-  });
-  lastMate = mates[mates.length - 1].name;
+  // console.log(newMateVotes)
+  finalContestants.map((contestant, index, contestants) => {
+    LeaderboardImgs.forEach((userImage, ElementIndex) => {
+      index == ElementIndex ? (userImage.src = contestant.imageSrc) : "";
+    });
+    counts.forEach((votes, ElementIndex) => {
+      index == ElementIndex ? (votes.textContent = contestant.votes) : "";
+    });
+    LeaderboardNames.forEach((name, ElementIndex) => {
+      index == ElementIndex ? (name.textContent = contestant.name) : "";
+    });
+  })
+  lastMate = finalContestants[finalContestants.length - 1].name;
   eviction.innerHTML = `${lastMate} was evicted`;
+
+
 });
