@@ -154,5 +154,7 @@ lboard.addEventListener("click", () => {
   lastMate = finalContestants[finalContestants.length - 1].name;
   eviction.innerHTML = `${lastMate} was evicted`;
 
-
+  newMateVotes = [];
+  sorted = [];
+  finalContestants = [];
 });
